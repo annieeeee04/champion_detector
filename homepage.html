@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cat Heart Rate Timer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dropdown">
+        <button class="dropbtn">☰ Menu</button>
+        <div class="dropdown-content">
+          <a href="#records">Records</a>
+          <a href="#todo">To-Do List</a>
+        </div>
+      </div>
+  <h1>Cat Heart Rate Timer</h1>
+
+  <img id="cat-pic" src="pics/Subject 4.png" alt="Cat"
+     onmouseenter="startImageCycle()" onmouseleave="stopImageCycle()">
+
+
+  <div id="timer">60</div>
+
+  <button id="startBtn" class="btn" onclick="startCountdown()">Start / Resume</button>
+  <button id="pauseBtn" class="btn" onclick="pauseCountdown()">Pause</button>
+  <button id="resetBtn" class="btn" onclick="resetCountdown()">Reset</button>
+
+  <div id="message">Good job Champion! 🎉</div>
+
+  <div>
+    <p>Enter heart rate (bpm) and date:</p>
+    <input type="text" id="heartRateInput" placeholder="e.g. 140">
+    <br>
+    <button class="btn" style="background-color:#8e44ad;" onclick="saveRecord()">Save</button>
+    <button id="emailBtn" class="btn" onclick="sendEmail()">Send to My Email</button>
+  </div>
+
+    <hr>
+    <div id="records">
+    <h2>Heart Rate Records 🐱📋✨</h2>
+    <ul id="recordList"></ul>
+    </div>
+
+    <hr>
+    <div id="todo">
+    <h2>Daily Medication To-Do List 💊🐾✨</h2>
+    <ul id="todoList">
+        <!-- Predefined medication tasks -->
+    </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
