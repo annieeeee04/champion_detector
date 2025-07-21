@@ -22,7 +22,10 @@ body {
     margin-bottom: 30px;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
   }
+  
   
   #timer {
     font-size: 80px;
@@ -234,11 +237,60 @@ body {
     display: inline-block;
     margin-left: 8px;
   }
+  
+  /* Section font: elegant & soft */
+#heartRateInput,
+#emailBtn,
+#heartRateInput + br + .btn,
+#heartRateInput + br + .btn + #emailBtn,
+p {
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  color: #3e3e3e;
+}
 
-  #cat-pic {
-    transition: opacity 0.5s ease-in-out;
-    opacity: 1;
-  }
-  
-  
+/* Paragraph styling */
+p {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* Input field */
+#heartRateInput {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 220px;
+  font-style: italic;
+  background-color: #fff6fb;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+#heartRateInput:focus {
+  outline: none;
+  box-shadow: 0 0 6px #de9afb;
+}
+
+/* Buttons under the input */
+#emailBtn,
+#heartRateInput + br + .btn {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  padding: 10px 16px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 10px;
+  background-color: #de9afb;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#emailBtn:hover,
+#heartRateInput + br + .btn:hover {
+  background-color: #c27ff7;
+  transform: scale(1.05);
+}
+
   
