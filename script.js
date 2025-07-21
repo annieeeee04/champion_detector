@@ -63,17 +63,37 @@ function sendEmail() {
   window.location.href = `mailto:zhichenzhang70@gmail.com?subject=${subject}&body=${body}`;
 }
 
-function addRecord(text) {
-  const recordList = document.getElementById("recordList");
+    function addRecord(text) {
+        const recordList = document.getElementById("recordList");
+    
+        const li = document.createElement("li");
+        li.className = "record-item";
+        li.innerHTML = `
+        <span>${text}</span>
+        <button onclick="deleteRecord(this)">Delete</button>
+        `;
+        recordList.appendChild(li);
+    
+        saveRecordsToLocalStorage();
+    }
+    
+    function deleteRecord(button) {
+        button.parentElement.remove();
+        saveRecordsToLocalStorage();
+    }
 
-  const li = document.createElement("li");
-  li.className = "record-item";
-  li.innerHTML = `
-    <span>${text}</span>
-    <button onclick="this.parentElement.remove()">Delete</button>
-  `;
-  recordList.appendChild(li);
-}
+    function saveRecordsToLocalStorage() {
+        const items = [];
+        document.querySelectorAll("#recordList li span").forEach(span => {
+          items.push(span.textContent);
+        });
+        localStorage.setItem("heartRateRecords", JSON.stringify(items));
+      }
+      
+      function loadRecordsFromLocalStorage() {
+        const items = JSON.parse(localStorage.getItem("heartRateRecords")) || [];
+        items.forEach(text => addRecord(text));
+      }      
 
 function saveRecord() {
   const heartRate = document.getElementById("heartRateInput").value;
@@ -159,4 +179,6 @@ const dailyMeds = [
     }, 300);
   }
   
-  
+updateDisplay();
+loadTodoList();
+loadRecordsFromLocalStorage();
