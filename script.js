@@ -179,6 +179,9 @@ const dailyMeds = [
     }, 300);
   }
   
-updateDisplay();
-loadTodoList();
-loadRecordsFromLocalStorage();
+  window.addEventListener("DOMContentLoaded", () => {
+    updateDisplay();
+    loadTodoList();
+    loadRecordsFromLocalStorage();
+  });
+  
